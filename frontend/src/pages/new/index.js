@@ -67,7 +67,7 @@ export default function New({ history }) {
                 onChange={event => setPreco(event.target.value)}
             />
 
-            <button type="submit" className="btn">Cadastrar</button>
+            <button type="submit" className="btn">Cadastrar Spots</button>
 
         </form>
     )
