@@ -1,9 +1,11 @@
 import React from 'react';
-import { View } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
-function Book() {
+function Book({ navigation }) {
+    const id = navigation.getParam('id');
+
     return (
-        <View />
+        <Text>{`ID DO CABRA ${id}`}</Text>
     )
 }
 

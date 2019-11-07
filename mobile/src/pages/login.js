@@ -12,7 +12,7 @@ function Login({ navigation }) {
     useEffect(() => {
         AsyncStorage.getItem('usuario').then(usuario => {
             if (usuario) {
-                //navigation.navigate('List');
+                navigation.navigate('List');
             }
         });
     }, [])

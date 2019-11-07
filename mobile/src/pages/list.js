@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, AsyncStorage, Text, StyleSheet } from 'react-native'
+import { View, ScrollView, AsyncStorage, Image, StyleSheet } from 'react-native'
 
-function List() {
+import SpotList from '../components/SpotList';
+
+import logo from '../assets/logo.png'
+
+function List({ navigation }) {
     const [tecnologias, setTecnologias] = useState([]);
 
     useEffect(() => {
@@ -13,10 +17,12 @@ function List() {
     }, [])
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>
-                {tecnologias}
-            </Text>
+        <View>
+            <Image style={styles.logo} source={logo} />
+
+            <ScrollView>
+                {tecnologias.map(tech => <SpotList key={tech} tecnologias={tech} />)}
+            </ScrollView>
         </View>
     )
 }
@@ -24,13 +30,12 @@ function List() {
 export default List
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
 
-    text: {
-        fontSize: 150
+    logo: {
+        height: 32,
+        resizeMode: "contain",
+        alignSelf: "center",
+        marginTop: 30,
+        marginBottom: 10
     }
 })
